@@ -194,6 +194,31 @@ nc localhost 1234
 Everytime you type something into `nc` it should print it back,
 all all `nc` sessions should be "responsive".
 
+You can test that your server correctly "echoes" everythin back, by sending a big
+random file and verifying that you received it correctly:
+
+```sh
+# create a 50MB file with random contents
+dd bs=1M count=50 if=/dev/urandom of=big
+
+# send / receive
+cat big | nc -q0  localhost 1235 > received
+
+# check that the two files are the same
+diff big received
+```
+
+As an ultimate test, that your server can handle multiple busy clients in parallel,
+you can run this "loop" in one (or multiple ;-) terminal:
+
+```sh
+cat /dev/urandom  | nc -q0 localhost 1235 >/dev/null
+```
+
+and then run multiple "interactive" clients like in the first example, and these
+should be still "responsive".
+
+
 
 Submitting
 ----------
