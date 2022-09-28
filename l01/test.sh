@@ -4,6 +4,12 @@ source ../test/common.sh
 
 hit() { msg "touch $*" ; touch "$@" ; }
 
+echo
+warn " Note: this a very fragile test that doesn't test all the cases and can break easily"
+warn " (for example it doesn't work when run from the netwok network drive at school"
+warn " because of timestamps.)"
+echo
+
 rm -f program.o number.o program libnumber.so
 
 [[ -r Makefile ]] || die "No Makefile present"
@@ -24,7 +30,7 @@ make || die "Re-running make failed"
 
 [[ program.o -nt program.c ]] || die "program.o was not rebuilt!"
 [[ program -nt program.c ]] || die "program was not rebuilt!"
-[[ number.o -nt program.c ]] && "number.o was rebuild when it should not"
+[[ number.o -nt program.c ]] && die "number.o was rebuild when it should not"
 [[ libnumber.so -nt program.c ]] && die "libnumber.so was rebuilt when it should not"
 
 sleep 1
