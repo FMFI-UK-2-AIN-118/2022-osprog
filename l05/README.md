@@ -2,7 +2,7 @@ Lab 5
 =====
 
 Submit the solution to the [ring buffer](#ringbuffer) task according to the
-[Submitting instructions](#submitting) before Wednesday Oct 26 23:59:59.
+[Submitting instructions](#submitting) before Wednesday Nov 2 23:59:59.
 
 RingBuffer
 ----------
