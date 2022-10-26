@@ -2,7 +2,7 @@ Lab 6
 =====
 
 Submit the solution to [Echo](#echo) tasks according to the
-[Submitting instructions](#submitting) before Wednesday Nov 2 23:59:59.
+[Submitting instructions](#submitting) before Wednesday Nov 9 23:59:59.
 
 
 Hello
